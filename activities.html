@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activities</title>
+    <link rel="stylesheet" href="css/activities.css" />
+  </head>
+  <body>
+     <!-- Audio Player -->
+     <audio id="bg-music"  autoplay loop>
+      <source src="blue.m4a" type="audio/mpeg">
+      Your browser does not support the audio tag.
+  </audio>
+
+  <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+  </nav>
+
+  <script>
+      const audio = document.getElementById("bg-music");
+
+      // Restore the previous playback position
+      window.onload = function() {
+          let savedTime = localStorage.getItem("audioTime");
+          if (savedTime) {
+              audio.currentTime = savedTime;
+          }
+          audio.play();
+      };
+
+      // Save the playback position before navigating away
+      window.onbeforeunload = function() {
+          localStorage.setItem("audioTime", audio.currentTime);
+      };
+  </script>
+    <div id="activityquestion"><b>What are we doing after!?</b></div>
+    <div class="activities-selection">
+      <div class="activity-item">
+        <img src="activities/aquarium.jpeg" alt="aquarium" />
+        <label
+          ><input
+            type="checkbox"
+            name="activities"
+            value="aquarium"
+          />aquarium</label
+        >
+      </div>
+      <div class="activity-item">
+        <img src="activities/MKT.webp" alt="MKT" />
+        <label
+          ><input
+            type="checkbox"
+            name="activities"
+            value="ceramics"
+          />MKT</label
+        >
+      </div>
+      <div class="activity-item">
+        <img src="activities/SunderNursery.jpg" alt="park.jpeg" />
+        <label
+          ><input
+            type="checkbox"
+            name="activities"
+            value="SunderNursery.jpg"
+          />Sunder Nursery</label
+        >
+      </div>
+      <div class="activity-item">
+        <img src="activities/arcade.jpeg" alt="arcade" />
+        <label
+          ><input
+            type="checkbox"
+            name="activities"
+            value="arcade"
+          />arcade</label
+        >
+      </div>
+      <div class="activity-item">
+        <img src="activities/cinema.jpeg" alt="cinema" />
+        <label
+          ><input
+            type="checkbox"
+            name="activities"
+            value="cinema"
+          />cinema</label
+        >
+      </div>
+    </div>
+    <button class="button" onclick="location.href='lastpage.html'">
+      Last page
+    </button>
+  </body>
+</html>

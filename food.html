@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Selection</title>
+    <link rel="stylesheet" href="css/food.css" />
+  </head>
+  <body>
+
+     <!-- Audio Player -->
+     <audio id="bg-music" autoplay loop>
+      <source src="blue.m4a" type="audio/mpeg">
+      Your browser does not support the audio tag.
+  </audio>
+
+  <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+  </nav>
+
+  <script>
+      const audio = document.getElementById("bg-music");
+
+      // Restore the previous playback position
+      window.onload = function() {
+          let savedTime = localStorage.getItem("audioTime");
+          if (savedTime) {
+              audio.currentTime = savedTime;
+          }
+          audio.play();
+      };
+
+      // Save the playback position before navigating away
+      window.onbeforeunload = function() {
+          localStorage.setItem("audioTime", audio.currentTime);
+      };
+  </script>
+    <div id="foodquestion">
+      <b>What food would you like to eat?</b>
+    </div>
+
+    <div class="food-selection">
+      <div class="food-item">
+        <img src="food/momos.webp" alt="Momos" />
+        <label
+          ><input
+            type="checkbox"
+            name="food"
+            value="Momos"
+          />
+          Momos</label
+        >
+      </div>
+      <div class="food-item">
+        <img src="food/koreanfood.jpeg" alt="koreanfood" />
+        <label
+          ><input type="checkbox" name="food" value="Korean food" /> korean
+          food</label
+        >
+      </div>
+      <div class="food-item">
+        <img src="food/pasta.jpeg" alt="pasta" />
+        <label><input type="checkbox" name="food" value="pasta" /> pasta</label>
+      </div>
+      <div class="food-item">
+        <img src="food/pizza.jpeg" alt="pizza" />
+        <label><input type="checkbox" name="food" value="pizza" /> pizza</label>
+      </div>
+      <div class="food-item">
+        <img src="food/sushi.jpeg" alt="sushi" />
+        <label><input type="checkbox" name="food" value="sushi" /> sushi</label>
+      </div>
+    </div>
+    <button class="button" onclick="location.href='dessert.html'">
+      Continue...!
+    </button>
+  </body>
+</html>
